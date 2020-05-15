@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from "../header";
 import Hero from "../hero";
-import HomePage from "../pages/homepage";
-import Top50Page from "../pages/top-50-page";
-import SignInPage from "../pages/sign-in-page/";
-import NewsPage from "../pages/news-page";
+import HomePage from "../../pages/homepage";
+import Top50Page from "../../pages/top-50-page";
+import SignInPage from "../../pages/sign-in-page";
+import NewsPage from "../../pages/news-page";
 
 function App() {
 	return (
