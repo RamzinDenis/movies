@@ -12,13 +12,17 @@ const Navigation: React.FC<NavProps> = ({ currentUser, match }) => {
 		<nav className={styles.navigation}>
 			{navigationData.map(navItem => {
 				if (
-					(currentUser && navItem.title === "Войти") ||
-					(!currentUser && navItem.title === "Выйти")
+					(currentUser && navItem.title === "SignIn") ||
+					(!currentUser && navItem.title === "SignOut")
 				)
 					return null;
 				return (
-					<Link to={`${match.url}${navItem.linkUrl}`} key={navItem.id}>
-						{navItem.title} | <></>
+					<Link
+						to={`${match.url}${navItem.linkUrl}`}
+						key={navItem.id}
+						className={styles.navigation__item}
+					>
+						{navItem.title}
 					</Link>
 				);
 			})}

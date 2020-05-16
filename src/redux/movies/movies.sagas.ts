@@ -12,10 +12,10 @@ import {
 export function* loadMoviesAsync(): SagaIterator<void> {
 	try {
 		const response: Response = yield call(fetch, url);
-		const result: MovieSlider[] = yield call([response, "json"]);
+		const data: { results: MovieSlider[] } = yield call([response, "json"]);
 		yield put<LoadMoviesSuccess>({
 			type: Constans.LOAD_MOVIES_SUCCESS,
-			payload: result,
+			payload: data.results,
 		});
 	} catch (err) {
 		yield put<LoadMoviesFailure>({

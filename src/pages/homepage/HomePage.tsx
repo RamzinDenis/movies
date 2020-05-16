@@ -1,12 +1,11 @@
 import React from "react";
 import HomePageContainer from "./HomePageContainer";
-import Slider from "../../components/slider";
+import { MovieSlider } from "../../components/slider";
 
-const HomePage: React.FC<{}> = ({}) => {
+const HomePage: React.FC<{}> = () => {
 	return (
 		<div>
-			HomePage
-			<Slider />
+			<MovieSlider />
 		</div>
 	);
 };

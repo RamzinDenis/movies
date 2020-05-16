@@ -7,7 +7,12 @@ export enum Constans {
 }
 
 export interface MovieSlider {
-	poster_path: string;
+	backdrop_path: string;
+	id: number;
+	title: string;
+	overview: string;
+	vote_average: number;
+	release_date: string;
 }
 
 export interface MoviesState {

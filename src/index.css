@@ -4,3 +4,8 @@
 h2 {
 	margin: 0;
 }
+
+.ant-spin {
+	display: block;
+	margin-top: 50px;
+}

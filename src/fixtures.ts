@@ -4,29 +4,31 @@ interface NavigationData {
 	linkUrl: string;
 }
 
+export const IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
+export const BACKDROP_SIZE = "w1280";
 export const navigationData: NavigationData[] = [
 	{
-		title: "Главная",
+		title: "Main",
 		id: 1,
 		linkUrl: "",
 	},
 	{
-		title: "Новости",
+		title: "News",
 		id: 2,
 		linkUrl: "News",
 	},
 	{
-		title: "Топ 50",
+		title: "Top 50",
 		id: 3,
 		linkUrl: "Top50",
 	},
 	{
-		title: "Войти",
+		title: "SignIn",
 		id: 4,
 		linkUrl: "SignIn",
 	},
 	{
-		title: "Выйти",
+		title: "SignOut",
 		id: 5,
 		linkUrl: "Выйти",
 	},

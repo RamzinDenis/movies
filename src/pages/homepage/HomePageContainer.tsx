@@ -1,4 +1,5 @@
 import React, { useEffect, ComponentType } from "react";
+import Spinner from "../../components/spinner";
 import { loadMovies } from "../../redux/movies/movies.sagas";
 import {
 	getMoviesLoading,
@@ -29,7 +30,11 @@ const HomePageContainer = <BaseProps extends {}>(
 			loadMovies();
 		}, [loadMovies, isLoaded, isLoading]);
 
-		return <WrappedComponent {...(restProps as BaseProps)} />;
+		return !isLoading && isLoaded ? (
+			<WrappedComponent {...(restProps as BaseProps)} />
+		) : (
+			<Spinner />
+		);
 	};
 
 	return connect<
