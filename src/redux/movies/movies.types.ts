@@ -13,6 +13,7 @@ export interface MovieSlider {
 	overview: string;
 	vote_average: number;
 	release_date: string;
+	poster_path: string;
 }
 
 export interface MoviesState {

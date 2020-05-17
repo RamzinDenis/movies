@@ -20,12 +20,17 @@ export default function <BaseProps>(
 ) {
 	const HocComponent: React.FC<BaseProps & HocProps> = ({ ...props }) => {
 		const { moviesImgs, ...restProps } = props;
-		const MovieSliderItems = moviesImgs.map((movieUrl, index) => (
-			<div key={index}>
-				<img
-					src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movieUrl}`}
-					alt="movieSliderPicture"
-				/>
+		const MovieSliderItems = moviesImgs.map((moviesArr, index) => (
+			<div key={index} className={styles.slider__item}>
+				{moviesArr.map(movie => (
+					<img
+						src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.poster_path}`}
+						alt="movieSliderPicture"
+						className={styles.img}
+						height={"600px"}
+						key={movie.id}
+					/>
+				))}
 			</div>
 		));
 		return (

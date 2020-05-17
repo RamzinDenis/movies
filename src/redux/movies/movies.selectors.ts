@@ -1,12 +1,14 @@
 import { RootState } from "../root-reducer";
 import { createSelector } from "reselect";
+import { sliseArrayByN } from "../../utils";
 
 export const getMoviesList = (state: RootState) => state.movies.entities;
 export const getMovies = (state: RootState) => state.movies;
 
-export const getMoviesImg = createSelector(getMoviesList, movies =>
-	movies.filter((_, index) => index < 5).map(movie => movie.backdrop_path)
-);
+export const getMoviesImg = createSelector(getMoviesList, movies => {
+	const filteredMovies = movies.filter((_, index) => index < 15);
+	return sliseArrayByN(filteredMovies, 3);
+});
 
 export const getMoviesLoading = createSelector(
 	getMovies,

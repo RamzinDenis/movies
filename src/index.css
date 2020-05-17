@@ -9,3 +9,12 @@ h2 {
 	display: block;
 	margin-top: 50px;
 }
+
+.slick-list {
+	border-radius: 25px;
+	box-sizing: border-box;
+	height: fit-content;
+}
+.anticon-search {
+	color: #808080;
+}

@@ -5,10 +5,12 @@ import styles from "./header.module.sass";
 
 const Header: React.FC = () => {
 	return (
-		<div className={styles.container}>
-			<img src={logo} className={styles.logo} alt="logo" />
-			<Navigation currentUser={false} />
-		</div>
+		<header className={styles.header}>
+			<div className={styles.container}>
+				<img src={logo} className={styles.logo} alt="logo" />
+				<Navigation currentUser={false} />
+			</div>
+		</header>
 	);
 };
 

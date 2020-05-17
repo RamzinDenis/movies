@@ -3,9 +3,9 @@ import styles from "./hero.module.sass";
 
 const Hero: React.FC = ({ children }) => {
 	return (
-		<div className={styles.hero}>
+		<main className={styles.hero}>
 			<div className={styles.container}>{children}</div>
-		</div>
+		</main>
 	);
 };
 
