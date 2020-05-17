@@ -12,7 +12,9 @@ export interface Genres {
 }
 
 export interface GenresState {
-	entities: Genres[];
+	entities: {
+		[key: string]: Genres;
+	};
 	isLoading: boolean;
 	isLoaded: boolean;
 	isError: boolean | null | string;
