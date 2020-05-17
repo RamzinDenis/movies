@@ -3,7 +3,7 @@ import { Constans } from "./movies.types";
 import { SagaIterator } from "redux-saga";
 import { url } from "../types";
 import {
-	MovieSlider,
+	Movie,
 	LoadMoviesFailure,
 	LoadMoviesSuccess,
 	LoadMoviesRequest,
@@ -12,7 +12,7 @@ import {
 export function* loadMoviesAsync(): SagaIterator<void> {
 	try {
 		const response: Response = yield call(fetch, url);
-		const data: { results: MovieSlider[] } = yield call([response, "json"]);
+		const data: { results: Movie[] } = yield call([response, "json"]);
 		yield put<LoadMoviesSuccess>({
 			type: Constans.LOAD_MOVIES_SUCCESS,
 			payload: data.results,

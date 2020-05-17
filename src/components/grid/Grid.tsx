@@ -1,19 +1,32 @@
 import React from "react";
 import styles from "./grid.module.sass";
+import { RootState } from "../../redux/root-reducer";
+import { getMoviesList } from "../../redux/movies/movies.selectors";
+import { connect } from "react-redux";
+import MovieCard from "../movie-card";
 
-interface GridProps {
+interface GridProps extends ConnectedProps {
 	title: string;
 }
+type ConnectedProps = ReturnType<typeof mapStateToProps>;
 
-const Grid: React.FC<GridProps> = ({ title }) => {
+const Grid: React.FC<GridProps> = ({ title, movies }) => {
 	return (
 		<section className={styles.container}>
 			<div className={styles.main}>
 				<h2 className={styles.title}>{title}</h2>
-				<div className={styles.grid}></div>
+				<div className={styles.grid}>
+					{movies.map(movie => (
+						<MovieCard movie={movie} key={movie.id} />
+					))}
+				</div>
 			</div>
 		</section>
 	);
 };
 
-export default Grid;
+const mapStateToProps = (state: RootState) => ({
+	movies: getMoviesList(state),
+});
+
+export default connect(mapStateToProps)(Grid);

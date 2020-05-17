@@ -6,7 +6,7 @@ export enum Constans {
 	LOAD_MOVIES_FAILURE = "LOAD_MOVIES_FAILURE",
 }
 
-export interface MovieSlider {
+export interface Movie {
 	backdrop_path: string;
 	id: number;
 	title: string;
@@ -17,9 +17,15 @@ export interface MovieSlider {
 }
 
 export interface MoviesState {
-	isLoading: boolean;
-	isLoaded: boolean;
-	entities: MovieSlider[];
+	isLoading: {
+		movies: boolean;
+		genres: boolean;
+	};
+	isLoaded: {
+		movies: boolean;
+		genres: boolean;
+	};
+	entities: Movie[];
 	isError?: string | null | boolean;
 }
 
@@ -29,7 +35,7 @@ export interface LoadMoviesRequest extends Action {
 
 export interface LoadMoviesSuccess extends Action {
 	type: Constans.LOAD_MOVIES_SUCCESS;
-	payload: MovieSlider[];
+	payload: Movie[];
 }
 
 export interface LoadMoviesFailure extends Action {

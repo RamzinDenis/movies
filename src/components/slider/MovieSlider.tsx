@@ -1,12 +1,12 @@
 import React, { ComponentType } from "react";
 import { connect } from "react-redux";
 import { RootState } from "../../redux/root-reducer";
-import { getMoviesImg } from "../../redux/movies/movies.selectors";
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../fixtures";
+import { getSlicedMovies } from "../../redux/movies/movies.selectors";
+import { IMAGE_BASE_URL, MAIN_POSTER_SIZE } from "../../fixtures";
 import styles from "./slider.module.sass";
 
 const mapStateToProps = (state: RootState) => ({
-	moviesImgs: getMoviesImg(state),
+	moviesImgs: getSlicedMovies(state),
 });
 
 export type HocProps = ReturnType<typeof mapStateToProps>;
@@ -24,7 +24,7 @@ export default function <BaseProps>(
 			<div key={index} className={styles.slider__item}>
 				{moviesArr.map(movie => (
 					<img
-						src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.poster_path}`}
+						src={`${IMAGE_BASE_URL}${MAIN_POSTER_SIZE}${movie.poster_path}`}
 						alt="movieSliderPicture"
 						className={styles.img}
 						height={"600px"}
