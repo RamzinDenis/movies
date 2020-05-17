@@ -1,6 +1,6 @@
 import { RootState } from "../root-reducer";
 import { createSelector } from "reselect";
-import { sliseArrayByN } from "../../utils";
+import { sliseArrayByN } from "../../utils/slice-array-by-chunks";
 
 export const getMovies = (state: RootState) => state.movies;
 export const getMoviesList = createSelector(
@@ -15,10 +15,10 @@ export const getSlicedMovies = createSelector(getMoviesList, movies => {
 
 export const getMoviesLoading = createSelector(
 	getMovies,
-	moviesState => moviesState.isLoading.movies
+	moviesState => moviesState.isLoading
 );
 
 export const getMoviesLoaded = createSelector(
 	getMovies,
-	moviesState => moviesState.isLoaded.movies
+	moviesState => moviesState.isLoaded
 );

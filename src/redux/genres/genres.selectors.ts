@@ -1,0 +1,9 @@
+import { RootState } from "../root-reducer";
+import { createSelector } from "reselect";
+
+const getGenresState = (state: RootState) => state.genres;
+
+export const getGenresList = createSelector(
+	getGenresState,
+	genresState => genresState.entities
+);

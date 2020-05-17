@@ -17,14 +17,8 @@ export interface Movie {
 }
 
 export interface MoviesState {
-	isLoading: {
-		movies: boolean;
-		genres: boolean;
-	};
-	isLoaded: {
-		movies: boolean;
-		genres: boolean;
-	};
+	isLoading: boolean;
+	isLoaded: boolean;
 	entities: Movie[];
 	isError?: string | null | boolean;
 }

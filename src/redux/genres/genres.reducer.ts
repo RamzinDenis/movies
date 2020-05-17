@@ -1,28 +1,28 @@
-import { MoviesState, Constans, MoviesActions } from "./movies.types";
+import { GenresState, GenresActions, Constans } from "./genres.types";
 
-const initialState: MoviesState = {
+const initialState: GenresState = {
 	isLoading: false,
 	isLoaded: false,
 	isError: false,
 	entities: [],
 };
 
-const reducer = (state = initialState, action: MoviesActions): MoviesState => {
+const reducer = (state = initialState, action: GenresActions): GenresState => {
 	switch (action.type) {
-		case Constans.LOAD_MOVIES_REQUEST:
+		case Constans.LOAD_GENRES_REQUEST:
 			return {
 				...state,
 				isLoading: true,
 				isError: null,
 			};
-		case Constans.LOAD_MOVIES_SUCCESS:
+		case Constans.LOAD_GENRES_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 				isLoaded: true,
 				entities: action.payload,
 			};
-		case Constans.LOAD_MOVIES_FAILURE:
+		case Constans.LOAD_GENRES_FAILURE:
 			return {
 				...state,
 				isLoading: false,
