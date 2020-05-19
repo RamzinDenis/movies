@@ -7,3 +7,8 @@ export const getGenresList = createSelector(
 	getGenresState,
 	genresState => genresState.entities
 );
+
+export const getGenreNamesFromIds = (
+	ids: string[],
+	genres: ReturnType<typeof getGenresList>
+) => ids.map(id => genres[id] && genres[id]["name"]);

@@ -1,7 +1,8 @@
 import React from "react";
 import { navigationData } from "../../fixtures";
-import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+import { NavLink, withRouter, RouteComponentProps } from "react-router-dom";
 import styles from "./navigation.module.sass";
+import { MenuOutlined } from "@ant-design/icons";
 
 interface NavProps extends RouteComponentProps {
 	currentUser: boolean;
@@ -17,15 +18,18 @@ const Navigation: React.FC<NavProps> = ({ currentUser, match }) => {
 				)
 					return null;
 				return (
-					<Link
-						to={`${match.url}${navItem.linkUrl}`}
-						key={navItem.id}
-						className={styles.navigation__item}
-					>
-						{navItem.title}
-					</Link>
+					<>
+						<NavLink
+							to={`${match.url}${navItem.linkUrl}`}
+							key={navItem.id}
+							className={styles.navigation__item}
+						>
+							{navItem.title}
+						</NavLink>
+					</>
 				);
 			})}
+			<MenuOutlined />
 		</nav>
 	);
 };

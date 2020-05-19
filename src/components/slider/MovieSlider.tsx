@@ -27,7 +27,6 @@ export default function <BaseProps>(
 						src={`${IMAGE_BASE_URL}${MAIN_POSTER_SIZE}${movie.poster_path}`}
 						alt="movieSliderPicture"
 						className={styles.img}
-						height={"600px"}
 						key={movie.id}
 					/>
 				))}

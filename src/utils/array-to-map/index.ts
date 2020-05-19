@@ -3,8 +3,6 @@ export interface DefaultObject {
 	[key: string]: any;
 }
 
-let keys: keyof DefaultObject;
-
 type Map<T> = {
 	[key: string]: T;
 };
