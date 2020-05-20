@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar /> should render SearchBar properly 1`] = `
+<form
+  className="form"
+>
+  <input
+    className="input"
+    placeholder="Search Movie"
+  />
+  <button
+    className="button"
+  >
+    <ForwardRef(SearchOutlined)
+      className="icon"
+    />
+  </button>
+</form>
+`;

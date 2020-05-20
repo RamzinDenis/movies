@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hero /> should render Hero component correctly 1`] = `
+<main
+  className="hero"
+>
+  <div
+    className="container"
+  />
+</main>
+`;

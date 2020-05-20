@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Grid /> should render properly 1`] = `
+<section
+  className="container"
+>
+  <div
+    className="main"
+  >
+    <h2
+      className="title"
+    >
+      Popular movies
+    </h2>
+    <div
+      className="grid"
+    >
+      <MovieCard
+        genresMap={null}
+        key="1234"
+        movie={
+          Object {
+            "backdrop_path": "string",
+            "genre_ids": Array [
+              12,
+              14,
+              10751,
+              18,
+              878,
+            ],
+            "id": 1234,
+            "overview": "This is the story...",
+            "poster_path": "",
+            "release_date": "2019_09-17",
+            "title": "Robin Hood",
+            "vote_average": 7.4,
+          }
+        }
+      />
+      <MovieCard
+        genresMap={null}
+        key="654637"
+        movie={
+          Object {
+            "backdrop_path": "string",
+            "genre_ids": Array [
+              12,
+              14,
+              10751,
+              18,
+              878,
+            ],
+            "id": 654637,
+            "overview": "This is the story...",
+            "poster_path": "",
+            "release_date": "2020_09-17",
+            "title": "Dostaevskiy",
+            "vote_average": 7.8,
+          }
+        }
+      />
+    </div>
+  </div>
+</section>
+`;

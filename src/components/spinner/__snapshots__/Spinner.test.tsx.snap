@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spinner /> should render Spinner correctly 1`] = `
+<div>
+  <Spin
+    indicator={
+      <ForwardRef(LoadingOutlined)
+        style={
+          Object {
+            "fontSize": "40px",
+          }
+        }
+      />
+    }
+    size="default"
+    spinning={true}
+    wrapperClassName=""
+  />
+</div>
+`;

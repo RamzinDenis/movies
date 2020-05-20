@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render Header correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="logo"
+      className="logo"
+      src="reactMovie_logo.png"
+    />
+    <withRouter(Navigation)
+      currentUser={false}
+    />
+  </div>
+</header>
+`;
