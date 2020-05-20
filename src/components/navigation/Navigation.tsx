@@ -19,15 +19,13 @@ const Navigation: React.FC<NavProps> = ({ currentUser, match }) => {
 		)
 			return null;
 		return (
-			<>
-				<NavLink
-					to={`${match.url}${navItem.linkUrl}`}
-					key={navItem.id}
-					className={styles.navigation__item}
-				>
-					{navItem.title}
-				</NavLink>
-			</>
+			<NavLink
+				to={`${match.url}${navItem.linkUrl}`}
+				key={navItem.id}
+				className={styles.navigation__item}
+			>
+				{navItem.title}
+			</NavLink>
 		);
 	});
 
