@@ -23,11 +23,12 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, genresMap }) => {
 				className={styles.image}
 			/>
 			<div className={styles.movieInfo}>
-				{/* <h2 className={styles.title}>{movie.title}</h2> */}
 				<div>
-					<span className={styles.year}>{movieReleaseYear},</span>
+					<span className={styles.year} data-id="release_year">
+						{movieReleaseYear},
+					</span>
 					{genres.map((genre, index) => (
-						<span key={index} className={styles.genre}>
+						<span key={index} className={styles.genre} data-id="genre">
 							{index !== genres.length - 1 ? genre + ", " : genre}
 						</span>
 					))}

@@ -9,6 +9,6 @@ export const getGenresList = createSelector(
 );
 
 export const getGenreNamesFromIds = (
-	ids: string[],
+	ids: number[],
 	genres: ReturnType<typeof getGenresList>
 ) => ids.map(id => genres[id] && genres[id]["name"]);

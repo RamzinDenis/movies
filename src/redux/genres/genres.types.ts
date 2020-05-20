@@ -7,7 +7,7 @@ export enum Constans {
 }
 
 export interface Genres {
-	id: string;
+	id: number;
 	name: string;
 }
 
