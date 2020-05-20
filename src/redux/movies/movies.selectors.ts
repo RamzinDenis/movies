@@ -10,7 +10,7 @@ export const getMoviesList = createSelector(
 
 export const getSlicedMovies = createSelector(getMoviesList, movies => {
 	const filteredMovies = movies.filter((_, index) => index < 15);
-	return sliseArrayByN(filteredMovies, 3);
+	return sliseArrayByN(filteredMovies, 3).reverse();
 });
 
 export const getMoviesLoading = createSelector(

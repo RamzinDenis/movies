@@ -26,3 +26,27 @@ span {
 .anticon-search {
 	color: #808080;
 }
+
+.ant-drawer-header {
+	background-color: #1b1b1b;
+	color: white;
+}
+.ant-drawer-title {
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.ant-drawer-body {
+	background-color: #141414;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+}
+.ant-drawer-wrapper-body .ant-drawer-body a {
+	margin-left: 0;
+	margin-bottom: 10px;
+	display: block;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #1c1c1c;
+}

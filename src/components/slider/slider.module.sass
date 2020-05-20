@@ -1,12 +1,19 @@
 .movieSlider
     border-radius: 5px
-    margin-top: 30px
+    margin: 30px auto
    
 .slider__item
     box-shadow: 0 0 10px
     position: relative
     display: flex !important
-    max-height: 600px
+    max-height: 80vh
     height: auto
+@media screen and ( min-device-width:500px) and (max-device-width: 699px)
+    .movieSlider
+        width: 65%
+@media screen and ( max-width: 375px )
+    .slider__item
+        max-height: 66vh
 
+    
    
