@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import styles from "./slider.module.sass";
 
 const mapStateToProps = (state: RootState) => ({
-	moviesImgs: getSlicedMovies(state),
+	slicedMovies: getSlicedMovies(state),
 });
 
 export type HocProps = ReturnType<typeof mapStateToProps>;
@@ -21,30 +21,40 @@ export default function <BaseProps>(
 ) {
 	const HocComponent: React.FC<BaseProps & HocProps> = ({ ...props }) => {
 		const isMobile = useMediaQuery({ maxWidth: 700 });
-		const { moviesImgs, ...restProps } = props;
-		const MovieSliderItems = moviesImgs.map((moviesArr, index) => (
-			<div key={index} className={styles.slider__item}>
+		const { slicedMovies, ...restProps } = props;
+		const MovieSliderItems = slicedMovies.map((moviesArr, index) => (
+			<div
+				key={index}
+				className={styles.slider__item}
+				data-id="slider-container"
+			>
 				{moviesArr.map(movie => (
 					<img
 						src={`${IMAGE_BASE_URL}${MAIN_POSTER_SIZE}${movie.poster_path}`}
 						alt="movieSliderPicture"
 						className={styles.img}
 						key={movie.id}
+						data-id="slider-img"
 					/>
 				))}
 			</div>
 		));
-		const MovieSliderMobileItems = moviesImgs
+		const MovieSliderMobileItems = slicedMovies
 			.filter((_, index) => index < 2)
 			.flat()
 			.map((movie, index) => (
-				<div key={index} className={styles.slider__item}>
+				<div
+					key={index}
+					className={styles.slider__item}
+					data-id="slider-container_mobile"
+				>
 					(
 					<img
 						src={`${IMAGE_BASE_URL}${MAIN_POSTER_SIZE}${movie.poster_path}`}
 						alt="movieSliderPicture"
 						className={styles.img}
 						key={movie.id}
+						data-id="slider-img"
 					/>
 					))
 				</div>

@@ -3,7 +3,11 @@ import SliderContainer, { InjectedProps } from "./MovieSlider";
 import { Carousel } from "antd";
 
 const Slider: React.FC<InjectedProps> = ({ children, classN }) => {
-	return <Carousel className={classN}>{children}</Carousel>;
+	return (
+		<Carousel className={classN} data-id="slider">
+			{children}
+		</Carousel>
+	);
 };
 
 export const MovieSlider = SliderContainer(Slider);
