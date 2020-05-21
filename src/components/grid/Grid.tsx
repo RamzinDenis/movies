@@ -4,7 +4,7 @@ import { RootState } from "../../redux/root-reducer";
 import { getMoviesList } from "../../redux/movies/movies.selectors";
 import { connect } from "react-redux";
 import MovieCard from "../movie-card";
-import { loadGenres } from "../../redux/genres/genres.sagas";
+import { loadGenres } from "../../redux/genres/genres.actions";
 import { getGenresList } from "../../redux/genres/genres.selectors";
 interface GridProps extends ConnectedProps {
 	title: string;
