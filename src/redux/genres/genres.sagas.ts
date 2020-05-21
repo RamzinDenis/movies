@@ -8,7 +8,7 @@ import {
 } from "./genres.types";
 import { genreUrl } from "../types";
 
-function* loadGenresAsync() {
+export function* loadGenresAsync() {
 	try {
 		const response: Response = yield call(fetch, genreUrl);
 		const result: { genres: Genres[] } = yield call([response, "json"]);
@@ -24,7 +24,7 @@ function* loadGenresAsync() {
 	}
 }
 
-function* loadGenresSaga() {
+export function* loadGenresSaga() {
 	yield takeLatest(Constans.LOAD_GENRES_REQUEST, loadGenresAsync);
 }
 

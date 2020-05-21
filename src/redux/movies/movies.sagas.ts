@@ -25,7 +25,7 @@ export function* loadMoviesAsync(): SagaIterator<void> {
 	}
 }
 
-function* loadMoviesSaga() {
+export function* loadMoviesSaga() {
 	yield takeLatest<LoadMoviesRequest>(
 		Constans.LOAD_MOVIES_REQUEST,
 		loadMoviesAsync
