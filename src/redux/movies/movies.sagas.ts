@@ -8,20 +8,15 @@ import {
 	LoadMoviesSuccess,
 	LoadMoviesRequest,
 } from "./movies.types";
+import { loadMoviesSuccess, loadMoviesFailure } from "./movies.actions";
 
 export function* loadMoviesAsync(): SagaIterator<void> {
 	try {
 		const response: Response = yield call(fetch, url);
 		const data: { results: Movie[] } = yield call([response, "json"]);
-		yield put<LoadMoviesSuccess>({
-			type: Constans.LOAD_MOVIES_SUCCESS,
-			payload: data.results,
-		});
+		yield put<LoadMoviesSuccess>(loadMoviesSuccess(data.results));
 	} catch (err) {
-		yield put<LoadMoviesFailure>({
-			type: Constans.LOAD_MOVIES_FAILURE,
-			payload: err.toString(),
-		});
+		yield put<LoadMoviesFailure>(loadMoviesFailure(err.toString()));
 	}
 }
 
@@ -31,10 +26,6 @@ export function* loadMoviesSaga() {
 		loadMoviesAsync
 	);
 }
-
-export const loadMovies = (): LoadMoviesRequest => ({
-	type: Constans.LOAD_MOVIES_REQUEST,
-});
 
 export default function* usersSagas() {
 	yield all([call(loadMoviesSaga)]);

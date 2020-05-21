@@ -1,6 +1,6 @@
 import React, { useEffect, ComponentType } from "react";
 import Spinner from "../../components/spinner";
-import { loadMovies } from "../../redux/movies/movies.sagas";
+import { loadMovies } from "../../redux/movies/movies.actions";
 import {
 	getMoviesLoading,
 	getMoviesLoaded,
