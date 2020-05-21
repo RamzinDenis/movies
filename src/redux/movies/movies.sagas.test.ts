@@ -34,12 +34,11 @@ describe("sagas.loadMoviesAsync", () => {
 	it("should fetch url and dispatch success action if executing without errors", async () => {
 		const movieRequest = jest.spyOn(window, "fetch").mockImplementation(
 			() =>
-				({
-					json: () =>
-						({
-							results: movies,
-						} as any),
-				} as any)
+				Promise.resolve({
+					json: () => ({
+						results: movies,
+					}),
+				}) as any
 		);
 		const dispatched: MoviesActions[] = [];
 
