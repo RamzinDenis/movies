@@ -11,12 +11,9 @@ export interface MovieCardProps {
 	genresMap: { [key: string]: Genres };
 }
 
-const MovieCard: React.FC<Omit<MovieCardProps, "genreMap"> & InjectedProps> = ({
-	movie,
-	movieReleaseYear,
-	genres,
-	pushHistory,
-}) => {
+export const MovieCard: React.FC<
+	Omit<MovieCardProps, "genreMap"> & InjectedProps
+> = ({ movie, movieReleaseYear, genres, pushHistory }) => {
 	return (
 		<div className={styles.card} onClick={() => pushHistory(movie.id)}>
 			<img

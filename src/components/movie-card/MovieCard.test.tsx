@@ -1,9 +1,10 @@
 import React from "react";
 import MovieCard from "./";
 import { Movie } from "../../redux/movies/movies.types";
-import { shallow, ShallowWrapper } from "enzyme";
+import { ReactWrapper, mount } from "enzyme";
 import { Genres } from "../../redux/genres/genres.types";
 import { getGenreNamesFromIds } from "../../redux/genres/genres.selectors";
+import { BrowserRouter } from "react-router-dom";
 
 const mockMovie: Movie = {
 	backdrop_path: "string",
@@ -39,13 +40,16 @@ const mockGenresMap: { [key: string]: Genres } = {
 };
 
 describe("<MovieCard />", () => {
-	let component: ShallowWrapper;
+	let component: ReactWrapper;
 
 	beforeEach(() => {
-		component = shallow(
-			<MovieCard movie={mockMovie} genresMap={mockGenresMap} />
+		component = mount(
+			<BrowserRouter>
+				<MovieCard movie={mockMovie} genresMap={mockGenresMap} />
+			</BrowserRouter>
 		);
 	});
+	afterEach(() => component.unmount());
 	it("should have less then 5 genres", () => {
 		expect(component.find("[data-id='genre']").length).toBeLessThan(5);
 	});

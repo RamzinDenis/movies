@@ -15,7 +15,7 @@ exports[`<Grid /> should render properly 1`] = `
     <div
       className="grid"
     >
-      <Connect(MovieCard)
+      <withRouter(HocComponent)
         genresMap={null}
         key="1234"
         movie={
@@ -37,7 +37,7 @@ exports[`<Grid /> should render properly 1`] = `
           }
         }
       />
-      <Connect(MovieCard)
+      <withRouter(HocComponent)
         genresMap={null}
         key="654637"
         movie={
