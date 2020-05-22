@@ -1,23 +1,22 @@
 import React from "react";
 import styles from "./movie-card.module.sass";
-import { connect } from "react-redux";
 import { Movie } from "../../redux/movies/movies.types";
 import { IMAGE_BASE_URL, CARD_POSTER_SIZE } from "../../fixtures";
 import { Genres } from "../../redux/genres/genres.types";
 import { getGenreNamesFromIds } from "../../redux/genres/genres.selectors";
 import { ReactComponent as Rate } from "../../asserts/icons/imdb.svg";
-import { loadMovieDetailRequest } from "../../redux/movie-detail/movie-detail.actions";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-interface MovieCardProps {
+interface MovieCardProps extends RouteComponentProps {
 	movie: Movie;
 	genresMap: { [key: string]: Genres };
 }
-type DispatchProps = typeof mapDispatchToProps;
 
-const MovieCard: React.FC<MovieCardProps & DispatchProps> = ({
+const MovieCard: React.FC<MovieCardProps> = ({
 	movie,
 	genresMap,
-	loadMovieDetailRequest,
+	history,
+	match,
 }) => {
 	let genres = getGenreNamesFromIds(movie.genre_ids, genresMap);
 	genres = genres.length > 4 ? genres.slice(0, 4) : genres;
@@ -25,7 +24,7 @@ const MovieCard: React.FC<MovieCardProps & DispatchProps> = ({
 	return (
 		<div
 			className={styles.card}
-			onClick={() => loadMovieDetailRequest(movie.id)}
+			onClick={() => history.push(`/Movie/${movie.id}`)}
 		>
 			<img
 				alt="movie poster card"
@@ -52,8 +51,4 @@ const MovieCard: React.FC<MovieCardProps & DispatchProps> = ({
 	);
 };
 
-const mapDispatchToProps = {
-	loadMovieDetailRequest,
-};
-
-export default connect(null, mapDispatchToProps)(MovieCard);
+export default withRouter(MovieCard);
