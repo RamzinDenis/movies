@@ -45,6 +45,7 @@ describe("loadGenresAsync", () => {
 			loadGenresAsync
 		);
 		expect(dispatched).toEqual([loadGenresSuccess(genres)]);
+		genresRequest.mockClear();
 	});
 	it("should dispatch failure action if fetching url with errors", async () => {
 		const dispatched: GenresActions[] = [];
@@ -58,5 +59,6 @@ describe("loadGenresAsync", () => {
 			loadGenresAsync
 		);
 		expect(dispatched).toEqual([loadGenresFailure("error")]);
+		genresRequest.mockClear();
 	});
 });
