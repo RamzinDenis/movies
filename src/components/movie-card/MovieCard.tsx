@@ -3,29 +3,22 @@ import styles from "./movie-card.module.sass";
 import { Movie } from "../../redux/movies/movies.types";
 import { IMAGE_BASE_URL, CARD_POSTER_SIZE } from "../../fixtures";
 import { Genres } from "../../redux/genres/genres.types";
-import { getGenreNamesFromIds } from "../../redux/genres/genres.selectors";
 import { ReactComponent as Rate } from "../../asserts/icons/imdb.svg";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import MovieCardContainer, { InjectedProps } from "./MovieCardContainer";
 
-interface MovieCardProps extends RouteComponentProps {
+export interface MovieCardProps {
 	movie: Movie;
 	genresMap: { [key: string]: Genres };
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({
+const MovieCard: React.FC<Omit<MovieCardProps, "genreMap"> & InjectedProps> = ({
 	movie,
-	genresMap,
-	history,
-	match,
+	movieReleaseYear,
+	genres,
+	pushHistory,
 }) => {
-	let genres = getGenreNamesFromIds(movie.genre_ids, genresMap);
-	genres = genres.length > 4 ? genres.slice(0, 4) : genres;
-	const movieReleaseYear = movie.release_date.slice(0, 4);
 	return (
-		<div
-			className={styles.card}
-			onClick={() => history.push(`/Movie/${movie.id}`)}
-		>
+		<div className={styles.card} onClick={() => pushHistory(movie.id)}>
 			<img
 				alt="movie poster card"
 				src={`${IMAGE_BASE_URL}${CARD_POSTER_SIZE}${movie.poster_path}`}
@@ -51,4 +44,4 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	);
 };
 
-export default withRouter(MovieCard);
+export default MovieCardContainer(MovieCard);
