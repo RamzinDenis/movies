@@ -1,10 +1,22 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import styles from "./hero.module.sass";
 
-const Hero: React.FC = ({ children }) => {
+interface HeroProps {
+	backgroundUrl?: string;
+	classN?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ children, backgroundUrl, classN }) => {
 	return (
 		<main className={styles.hero}>
-			<div className={styles.container}>{children}</div>
+			<div
+				className={classN || styles.container}
+				style={{
+					backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : "",
+				}}
+			>
+				{children}
+			</div>
 		</main>
 	);
 };

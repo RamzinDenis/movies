@@ -7,6 +7,7 @@ interface NavigationData {
 export const IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
 export const MAIN_POSTER_SIZE = "w780";
 export const CARD_POSTER_SIZE = "w342";
+export const BACKDROP_SIZE = "w1280";
 
 export const navigationData: NavigationData[] = [
 	{
@@ -32,7 +33,7 @@ export const navigationData: NavigationData[] = [
 	{
 		title: "SignOut",
 		id: 5,
-		linkUrl: "Выйти",
+		linkUrl: "SignOut",
 	},
 ];
 
