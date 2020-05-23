@@ -1,25 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { loadMovieDetailRequest } from "../../redux/movie-detail/movie-detail.actions";
-import { RouteComponentProps } from "react-router-dom";
+import React from "react";
+import MoviePageContainer, { InjectedProps } from "./MoviePageContainer";
 
-interface MatchParams {
-	movieId: string;
-}
-
-interface MoviePageProps extends RouteComponentProps<MatchParams> {}
-type DispatchProps = typeof mapDispatchToProps;
-
-const MoviePage: React.FC<MoviePageProps & DispatchProps> = ({
-	match,
-	loadMovieDetailRequest,
-}) => {
-	useEffect(() => {
-		loadMovieDetailRequest(parseInt(match.params.movieId));
-	});
+const MoviePage: React.FC<InjectedProps> = ({ movie }) => {
+	console.log(movie);
 	return <div>Movie</div>;
 };
 
-const mapDispatchToProps = { loadMovieDetailRequest };
-
-export default connect(null, mapDispatchToProps)(MoviePage);
+export default MoviePageContainer(MoviePage);
